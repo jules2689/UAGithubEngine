@@ -16,6 +16,13 @@
 {
     NSArray *dateElements = [NSArray arrayWithObjects:@"created_at", @"updated_at", @"closed_at", @"due_on", @"pushed_at", @"committed_at", @"merged_at", @"date", @"expirationdate", nil];
     NSMutableArray *jsonArray;
+	if (theJSON == nil) {
+		NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:@"JSON Was Nil" forKey:@"errorMessage"];
+		NSError *theError = [NSError errorWithDomain:@"UAGithubEngineGithubError" code:0 userInfo:details];
+		NSLog(@"Json Was NIL!");
+		return theError;
+	}
     id jsonObj = [NSJSONSerialization JSONObjectWithData:theJSON options:NSJSONReadingMutableLeaves|NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:error];
     
     jsonArray = ([jsonObj isKindOfClass:[NSDictionary class]]) ? [NSMutableArray arrayWithObject:jsonObj] : [jsonObj mutableCopy];
