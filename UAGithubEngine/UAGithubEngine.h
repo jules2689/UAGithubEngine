@@ -13,6 +13,8 @@
 
 @optional
 - (void)didReceiveData:(NSData*)responseData forPullRequestsInRepositoryWithName:(NSString*)repositoryName;
+- (void)didReceiveData:(NSData*)responseData withCommentsForRepositoryWithName:(NSString*)repositoryName;
+- (void)didReceiveData:(NSData*)responseData withIssuesCommentsForRepositoryWithName:(NSString*)repositoryName;
 @optional
 - (void)didReceiveDataForUserRequest:(NSData*)responseData;
 

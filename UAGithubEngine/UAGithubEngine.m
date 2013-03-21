@@ -262,6 +262,10 @@
 		 } else if(requestType == UAGithubUserRequest) {
 			 [_delegate didReceiveDataForUserRequest:responseData];
 			 
+		 } else if(requestType == UAGithubPullRequestCommentsRequest ) {
+			 [_delegate didReceiveData:responseData withCommentsForRepositoryWithName:name];
+		 } else if(requestType == UAGithubIssueCommentsRequest ) {
+			 [_delegate didReceiveData:responseData withIssuesCommentsForRepositoryWithName:name];
 		 } else {
 			 [_delegate didReceiveData:responseData forPullRequestsInRepositoryWithName:name];
 		 }
